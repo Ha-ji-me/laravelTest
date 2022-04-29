@@ -14,7 +14,7 @@ class HomeController extends Controller
 
     public function test()
     {
-        $text = ['msg' => 'こんにちは私はコントローラーです'];
+        $text = ['msg' => 'hello Laravel!!','int' => 8,];
         return view('test' ,$text);
     }
 
