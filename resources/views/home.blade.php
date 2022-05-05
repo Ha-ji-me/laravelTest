@@ -1,24 +1,23 @@
-<!-- テストデータです
+@extends('layouts.app')
 
-myAppのfixメモ
+@section('content')
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">Dashboard</div>
 
-authディレクトリの名前変更が反映されない
-gitのデフォルトでは、大文字・小文字の変更差分は読み込まないらしい。
-設定はtrueからfalseに変えるだけだが、次に問題なのが、
-変更後にもAuth->authに変更することはできず（というかgitで変更をpushすることができない）、
-一度Auth->_Authにしてからさらにauthに変更することができるみたいだった。
-しかし、authに変更することができない。
-gitの変更差分としてpushに持っていけるのは、Authから_Authに変えた時の、その中に含んでいる削除されたファイルたちだけだった、
-とりあえずこのファイルたちをpushしてみる。
-そういえば、一番最初にディレクトリ名を変更したときに、変更差分として出たのが同じようにディレクトリ内のファイルたちだった。
-その後、そのファイルたちをpushした後、ディレクトリごと消えたけど。
-おそらく次も消える気がするから、またGitからコピーして生成する。
+                <div class="card-body">
+                    @if (session('status'))
+                        <div class="alert alert-success" role="alert">
+                            {{ session('status') }}
+                        </div>
+                    @endif
 
-
-変更が完了したが、相変わらずviewファイルが存在しないというエラーを吐き続けるheroku。
-ディレクトリ構成も確認したところ正しいし、ディレクトリ名、ファイル名ともに正しいように見える。
-laravelの命名規則から、ファイル名をスネークケースにすることが良さそうだったが、短いファイル名のものも読み込まれていないため、
-その線もなさそうに思える。 -->
-
-
-
+                    You are logged in!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@endsection
