@@ -16,9 +16,11 @@ Route::get('/', function () {
 });
 
 Route::get('/home', 'HomeController@home');
+Route::get('/home', 'HomeController@index')->name('home');
 
-Route::get('/test', 'SampleController@test');
+Route::get('/create', 'HomeController@create')->name('create');
+Route::post('/store', 'HomeController@store')->name('store');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index')->name('home');
+
